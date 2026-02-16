@@ -6,33 +6,39 @@ public class practical12 {
     public static int mcs0n3(int[] X) {
         int n = X.length;
         int maxsofar = 0;
+        long count = 0;
         for (int low = 0; low < n ; low++){
             for (int high = low; high <n; high++) {
                 int sum = 0;
                 for (int r = low; r < high; r++) {
                     sum += X[r];
+                    count++; //core 
                 }
                 if (sum > maxsofar){
                     maxsofar = sum;
                 }
             }
         }
+         System.out.println("O(n^3) count: " + count);
         return maxsofar;
     }
 
     public static int mcs0n2A(int[] X) {
         int n = X.length;
         int maxsofar = 0;
+        long count = 0;
         for (int low = 0; low < n ; low++){
             int sum = 0;
             for (int r = low; r < n; r++) {
                 sum += X[r];
+                count++; //core
                 if (sum > maxsofar) {
                     maxsofar = sum;
 
                 }
             }
         }
+         System.out.println("O(n^2 A) count: " +count);
         return maxsofar;
     }
 
@@ -44,14 +50,17 @@ public class practical12 {
             sumTo[i+1] = sumTo[i] + X[i];
         }
         int maxsofar = 0;
+        long count = 0;
         for (int low = 0; low < n ; low++){
             for (int high = low; high < n; high++) {
                 int sum = sumTo[high +1] - sumTo[low];
+                count++; //core
                 if (sum > maxsofar){
                     maxsofar = sum;
                 }
             }
         }
+         System.out.println("O(n^2 B) count: " +count);
         return maxsofar;
     }
 
@@ -59,10 +68,13 @@ public class practical12 {
         int n = X.length;
         int maxsofar = 0;
         int maxtohere = 0;
+        long count = 0;
         for (int i = 0; i < n; i++) {
             maxtohere = Math.max(maxtohere+ X[i], 0);
+            count++; //core
             maxsofar = Math.max(maxsofar, maxtohere);
         }
+         System.out.println("O(n) count: " +count);
         return maxsofar;
     }
     public static int[] createArray(int n) {
