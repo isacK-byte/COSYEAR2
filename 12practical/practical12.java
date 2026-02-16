@@ -10,7 +10,7 @@ public class practical12 {
         for (int low = 0; low < n ; low++){
             for (int high = low; high <n; high++) {
                 int sum = 0;
-                for (int r = low; r < high; r++) {
+                for (int r = low; r <= high; r++) {
                     sum += X[r];
                     count++; //core 
                 }
@@ -85,5 +85,20 @@ public class practical12 {
             X[k] = sgn * (rand.nextInt(n) + 1);
         }
         return X;
+    }
+
+    public static void main(String[] args) {
+        int[] ns = {100, 1000, 10000, 100000, 1000000};
+        for (int n : ns) {
+            int[] X = createArray(n);
+            mcs0n3(X);
+            mcs0n2A(X);
+            mcs0n2B(X);
+            mcs0n(X);
+        }
+
+  
+      
+
     }
 }
