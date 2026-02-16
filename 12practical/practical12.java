@@ -65,5 +65,13 @@ public class practical12 {
         }
         return maxsofar;
     }
-
+    public static int[] createArray(int n) {
+        Random rand = new Random();
+        int[] X = new int[n];
+        for (int k = 0; k < n; k++) {
+            int sgn = (rand.nextInt(3) == 0) ? -1 : 1;
+            X[k] = sgn * (rand.nextInt(n) + 1);
+        }
+        return X;
+    }
 }
