@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class 12practical {
+public class practical12 {
 
 
     public static int mcs0n3(int[] X) {
@@ -17,5 +17,24 @@ public class 12practical {
                 }
             }
         }
+        return maxsofar;
     }
+
+    public static int mcs0n2A(int[] X) {
+        int n = X.length;
+        int maxsofar = 0;
+        for (int low = 0; low < n ; low++){
+            int sum = 0;
+            for (int r = low; r < n; r++) {
+                sum += X[r];
+                if (sum > maxsofar) {
+                    maxsofar = sum;
+
+                }
+            }
+        }
+        return maxsofar;
+    }
+
+
 }
