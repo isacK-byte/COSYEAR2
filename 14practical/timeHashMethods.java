@@ -27,6 +27,7 @@ DecimalFormat fiveD = new DecimalFormat("0.00000");
 
 long start, finish;
 double runTime = 0, runTime2 = 0, time;
+double openTime = 0, chainedTime = 0;
 double totalTime = 0.0;
 int n = N;
 int repetition, repetitions = 30;
@@ -39,14 +40,16 @@ int repetition, repetitions = 30;
       openHashtable (...);
       finish = System.currentTimeMillis();
       time = (double)(finish - start);
+      openTime = time;
 
       start = System.currentTimeMillis();
       chainedHashtable (...);
-      finish = System.currentTimeMillis();                                          // Figure out how to alter this guideline here,
-		
-      
+      finish = System.currentTimeMillis();
+                                            // Figure out how to alter this guideline here,
+		time = (double)(finish - start);
+      chainedTime = time; 
 			
-      time = (double)(finish - start);
+      
       runTime += time;
       runTime2 += (time*time); }
 
