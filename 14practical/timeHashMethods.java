@@ -8,8 +8,18 @@ import java.text.*;
 
 public class timeHashMethods{
 public static int N = 1 << 20;
-public static Node[] generateArray()
 
+public static class Node {
+   String key;
+   String value;
+   Node (String key, String value){
+      this.key = key;
+      this.value = value;
+
+   }
+}
+
+public static 
 
 
 
