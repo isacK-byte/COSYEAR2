@@ -1,9 +1,24 @@
 //4460799
 //Practical 4 Monday 
-import java.lang.Math.*;   import java.io.*;   import java.text.*;
+
+import java.lang.Math.*;
+import java.io.*;
+import java.text.*;
+
 
 public class timeHashMethods{
-public static int N = 100;
+public static int N = 1000000;
+
+
+
+
+
+
+
+
+
+
+
 public static void main(String args[]){
 
 DecimalFormat twoD = new DecimalFormat("0.00");
@@ -20,20 +35,25 @@ int repetition, repetitions = 30;
    for(repetition = 0; repetition < repetitions; repetition++) {
       
       start = System.currentTimeMillis();
-      // call the procedures to time here:
+                                             // call the procedures to time here:
       openHashtable (...);
       finish = System.currentTimeMillis();
       time = (double)(finish - start);
-      
+
+      start = System.currentTimeMillis();
       chainedHashtable (...);
-      // Figure out how to alter this guideline here,
+      finish = System.currentTimeMillis();                                          // Figure out how to alter this guideline here,
 		
-      finish = System.currentTimeMillis();
+      
 			
       time = (double)(finish - start);
       runTime += time;
       runTime2 += (time*time); }
 
+   
+   
+   
+   
    double aveRuntime = runTime/repetitions;
    double stdDeviation = 
       Math.sqrt(runTime2 - repetitions*aveRuntime*aveRuntime)/(repetitions-1);
@@ -52,10 +72,15 @@ int repetition, repetitions = 30;
    System.out.println("Repetitions  =             " + repetitions);
    System.out.println("________________________________________________");
    System.out.println();
-   System.out.println(); }	} 
+   System.out.println(); 
+}	
+} 
 
-static void oneofyourMethods(int n, 
-                       yourMethodParameter1,
-                       yourMethodParameter2, . . . ) {
+
+
+
+  // static void oneofyourMethods(int n, 
+  //                     yourMethodParameter1,
+    //                   yourMethodParameter2, . . . ) {
 // The declarations and body of your method / s   
 // The final statement of this code.} }
