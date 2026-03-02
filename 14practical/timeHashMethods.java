@@ -7,7 +7,8 @@ import java.text.*;
 
 
 public class timeHashMethods{
-public static int N = 1000000;
+public static int N = 1 << 20;
+public static Node[] generateArray()
 
 
 
