@@ -1,4 +1,19 @@
 //4460799 Practical 5 E1
 
-import java.util.io.*
-import java.util.*
+import java.io.*;
+import java.util.*;
+
+public class Anagrams{
+    
+    public static String signature(String word){
+        char[] chars = word.toCharArray();
+        Arrays.sort(chars);
+        return new String(chars);
+
+    }
+
+    public static String cleanWord(String original){
+        String w = original.replaceAll("^[^a-zA-Z']+","").replaceAll("[^a-zA-Z']+$","";);
+        return w.toLowerCase();
+    }
+}
