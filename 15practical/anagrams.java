@@ -96,9 +96,39 @@ public class Anagrams{
         }
         Collections.sort(allLines);
 
-        //Below is completely AI. I had 0 idea how to do the latex stuff
-
+        //Latex part
         
+        File latexDir = new File("latex");
+        if (!latexDir.exists()) {
+            latexDir.mkdir();
+        }
+
+        try (PrintWriter texWriter = new PrintWriter(
+                new OutputStreamWriter(new FileOutputStream("latex/theAnagrams.tex"), "UTF-8"))) {
+
+            char currentLetter = 0;
+
+            for (String lemma : allLines) {
+                char initial = Character.toLowerCase(lemma.charAt(0));
+
+               
+                if (initial != currentLetter) {
+                    currentLetter = initial;
+                    texWriter.println("\n\\vspace{14pt}");
+                    texWriter.println("\\noindent\\textbf{\\Large " +
+                            Character.toUpperCase(initial) + "}\\\\*[+12pt]");
+                }
+
+                texWriter.println(lemma);
+            }
+
+            System.out.println("\nLaTeX file written to latex/theAnagrams.tex");
+
+        } catch (IOException e) {
+            System.err.println("Error writing LaTeX file: " + e.getMessage());
+            System.exit(1);
+        }
+
 
 
 
