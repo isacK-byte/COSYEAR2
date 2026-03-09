@@ -25,6 +25,33 @@ public class Anagrams{
 
         Hashmap<String, Integer> D = new Hashmap<>();
 
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(inputFile), "ISO-8859-1")))
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(inputFile), "ISO-8859-1"))){
+            
+            String line;
+            int lineNumber = 0;
+
+            while ((line = br.readLine()) != null) {
+                lineNumber++
+                String[] tokens = line.split("\\s+");
+                
+                for (String token : tokens) {
+                    String w = cleanWord(token);
+
+                    if (w.isEmpty()) continue ;
+
+                    D.put(w, D.getOrDefault(w, 0)+ 1);
+                }
+                System.out.println("Lines read:"+ lineNumber);
+                System.out.println("Unique tokens"+ D.size);
+
+                            }
+        } catch (IOException e) {
+            System.err.println("Error reading file");
+            System.ext(1);
+        }
+
+
+        Hashmap<String, Arraylist<String>> A = new Hashmap<>();
+        
     }
 }
