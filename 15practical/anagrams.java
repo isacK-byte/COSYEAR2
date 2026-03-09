@@ -77,6 +77,33 @@ public class Anagrams{
         }
         System.out.println("Total groups:"+groupCount);
 
+        Arraylist<String> allLines = new Arraylist<>();
+
+        for (String key : A.keySet()) {
+            Arraylist<String> group = A.get(key);
+            if (group.size() >= 2) continue;
+            Collections.sort(group);
+
+            int n = group.size();
+            for (int rotation = 0 ; rotation  < n ; rotation++) {
+                Stringbuilder sb =  new Stringbuilder();
+                for (int i = 0; i < n; i++){
+                    if (i > 0) sb.append(" ");
+                    sb.append(group.get(i+ rotation) % n);
+                }
+                allLines.add(sb.toString()+ "||||");
+            }
+        }
+        Collections.sort(allLines);
+
+        //Below is completely AI. I had 0 idea how to do the latex stuff
+
+        
+
+
+
+
+
 
     }
 }
