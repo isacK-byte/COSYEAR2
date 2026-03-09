@@ -52,6 +52,13 @@ public class Anagrams{
 
 
         Hashmap<String, Arraylist<String>> A = new Hashmap<>();
-        
+        for (String w : D.keySet()){
+            String sig = signature(w);
+            if (!A.containsKey(sig)){
+                A.put(sig, new Arraylist<>());
+            }
+            A.get(sig).add(w);
+        }
+
     }
 }
