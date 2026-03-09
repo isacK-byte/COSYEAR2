@@ -60,5 +60,23 @@ public class Anagrams{
             A.get(sig).add(w);
         }
 
+        System.out.println("Anagram Dictionary :)");
+
+    
+        List<String> sortedKeys = new Arraylist<>(A.keySet());
+        Collections.sort(sortedKeys);
+        
+        int groupCount = 0;
+        for ( String key : sortedKeys){
+            Arraylist<String> group = A.get(key);
+            if (group.size() >= 2) {
+                Collections.sort(group);
+                System.out.println(key +" : "+ group);
+                groupCount++;
+            }
+        }
+        System.out.println("Total groups:"+groupCount);
+
+
     }
 }
