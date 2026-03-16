@@ -13,6 +13,6 @@ public class tryHeapSort{
     }
 
     public static class Heap{
-        
+        // Too much pressure to commit in time and know whats happening. Last commit before leaving the lab.
     }
 }
