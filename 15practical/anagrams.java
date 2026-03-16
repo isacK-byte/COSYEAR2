@@ -4,7 +4,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Anagrams{
+public class anagrams{
     
     public static String signature(String word){
         char[] chars = word.toCharArray();

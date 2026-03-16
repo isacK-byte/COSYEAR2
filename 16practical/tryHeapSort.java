@@ -4,5 +4,15 @@ import java.util*;
 
 public class tryHeapSort{
 
-    
+    public static class Node {
+        String key;
+
+        public Node(String key) {
+            this.key = key;
+        }
+    }
+
+    public static class Heap{
+        
+    }
 }
