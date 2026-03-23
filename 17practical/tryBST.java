@@ -124,6 +124,60 @@ public class tryBST
         fillBST(low, mid -1);
         fillBST(mid + 1, high);
     }
+    
+    public tNode search(tNode here, long k)
+    {
+        if (here == null) return null;
+        if ( k== here.getKey()) return here;
+        if (k < here.getKey()) return search(here.getLeft(), k);
+        else
+            return search(here.getRight(), k);
+    }
+    public tNode min(tNode here)
+    {
+        if (here == null) return null;
+        if (here.getLeft()== null) return here;
+        return min(here.getLeft());
+
+    }
+
+    private void replace(tNode u, tNode v)
+    {
+        if (u.getParent()==null)                // u is a root
+            root = v;
+        else if(u == u.getParent().getLeft())       //u is a left child
+            u.getParent().setLeft(v);
+        else
+            u.getParent().setRight(v);              //u is a right child 
+
+        if (v!= null)
+            v.setParent(u.getParent());
+    }
+
+    public void delete(long k)
+    {
+        tNode z = search(root, k);
+        if (z == null) return;
+        
+        if (z.getLeft()==null)
+            replace(z, z.getRight());
+        else if (z.getRight()==null)
+            replace(z,z.getLeft());
+        else
+        {
+            tNode y = min(z.getRight());
+            if (y.getParent() != z)
+            {
+                replace(y,y.getRight());
+                y.setRight(z.getRight());
+                y.getRight().setParent(y);
+            }
+            replace(z,y);
+            y.setLeft(z.getLeft());
+            y.getLeft().setParent(y);
+        }
+        length--;
+    }
   }
 
 }
