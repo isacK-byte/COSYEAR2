@@ -65,8 +65,57 @@ public class tryBST
   
   public class Tree 
   {
-    private static int N = 20;
-    private static int
+    private  int N = 20;
+    private  int listed = 0;
+    private  int  length;
+    private tNode root;
+
+    public Tree()
+    {
+        root = null;
+        length = 0;
+
+    }
+
+    public void setRoot(tNode n){root = n;}
+    public tNode getRoot(){return  root;}
+    
+    public void insert(tNode n)
+    {
+        if (root==null){root = n;}
+        else insert(root, n);
+    
+    }
+
+    public void insert( long k, String d)
+    {
+        tNode n = new tNode(k,d);
+        if (root == null){root = n;}
+        else 
+            insert(root, n);
+        length++;
+    }
+
+    public void insert(tNode here, tNode n) 
+    {
+        if (n.getKey()< here.getKey())// n goes left
+        // n enters left subtree
+        if (here.getLeft()== null)
+        {
+            n.setParent(here);
+            here.setLeft(n);
+        }else insert(here.getLeft(),n);
+        else if(here.getRight()==null)
+        {   // n goes right and enters right subtree
+            n.setParent(here);
+            here.setRight(n);
+        }else insert(here.getRight(),n);
+
+    }
+    public int size(){return length;}
+    public boolean isEmpty(){return length == 0;}
+    public boolean isFull(){return length == N;}
+
   }
 
 }
