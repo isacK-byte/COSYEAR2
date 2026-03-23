@@ -116,6 +116,14 @@ public class tryBST
     public boolean isEmpty(){return length == 0;}
     public boolean isFull(){return length == N;}
 
+    public void fillBST(long low, long high)
+    {
+        if (low > high) return;
+        long mid = (low + high)/2;
+        insert(mid, String.valueOf(mid));
+        fillBST(low, mid -1);
+        fillBST(mid + 1, high);
+    }
   }
 
 }
