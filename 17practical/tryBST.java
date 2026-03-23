@@ -179,5 +179,5 @@ public class tryBST
         length--;
     }
   }
-
+  //ran out of time lol
 }
