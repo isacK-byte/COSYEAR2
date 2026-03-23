@@ -39,5 +39,27 @@ public class tryBST
     public void setRight(tNode n){right = n;}
     public tNode getParent(){return parent;}
     public void setParent(tNode n){parent = n;}
+
+    public void insert(tNode n) // insert procedure for NODES TO BST
+    {
+        if (n.key < key)    // n into left subtree
+            if (left == null)
+                {
+                    n.parent = this;
+                    left = n;
+                }
+                else 
+                    left.insert(n);
+                
+        
+        if (n.key >= key)    // n into right subtree
+            if (right == null)
+                {
+                    n.parent = this;
+                    right = n;
+                }
+                else 
+                    right.insert(n);   //  If right !=null(if point has child on the left), thenleft.insert(n)
+    }    
   }  
 }
