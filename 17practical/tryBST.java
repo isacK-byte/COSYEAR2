@@ -61,5 +61,12 @@ public class tryBST
                 else 
                     right.insert(n);   //  If right !=null(if point has child on the left), thenleft.insert(n)
     }    
-  }  
+  }
+  
+  public class Tree 
+  {
+    private static int N = 20;
+    private static int
+  }
+
 }
