@@ -5,10 +5,16 @@ class BinaryTreeNode<E> {               //Q1.2 Added "private " keyword for enca
     private BinaryTreeNode<E> left;
     private BinaryTreeNode<E> right;
 
+    public BinaryTreeNode(){
+        this.value = null;
+        this.left = null;
+        this.right = null;
+    } 
+
 }
 
 class BinaryTree<E>{
-    int size;
-    BinaryTreeNode<E> root;
+   private int size;
+    private BinaryTreeNode<E> root;
 
 }
