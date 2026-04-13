@@ -19,9 +19,7 @@ class BinaryTreeNode<E> {               //Q1.2 Added "private " keyword for enca
         this.right = right;
     }
 
-    public void setValue( E value){     //generic setters placed 
-        this.value = value ;
-    }
+    public void setValue( E value){ this.value = value ;}   //generic setters placed
     public void setLeft(BinaryTreeNode<E> left){ this.left = left;}
     public void setRight(BinaryTreeNode<E> right){ this.right = right;}
     public E getValue(){ return value;} //generic getters placed
@@ -43,4 +41,10 @@ class BinaryTree<E>{
         this.size = size;
     }
 
+      public void setSize( int size){ this.size = size ;}   //generic setters placed
+    public void setRoot(BinaryTreeNode<E> root){ this.root = root;}
+
+    public int getSize(){ return size;} //generic getters placed
+    public BinaryTreeNode<E> getRoot(){return root;}    
+  
 }
