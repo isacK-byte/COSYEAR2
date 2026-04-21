@@ -49,14 +49,23 @@ class BinarySearchTree {
     public int getSize(){return size;}
 
     public boolean search(int data){
-        return complexSearch( root, data);
+        return complexSearch( root, data);      //Asked Copilot how to go about creating the function without having node as a parameter
     }
 
     private boolean complexSearch(Node n, int data){
-        if (n == null) return false;
-        else if ( n.getData() == data) return true;
-        else if ( data < n.getData() ) return complexSearch(n.getLeft(), data);
-        else if (data > n.getData()) return complexSearch(n.getRight(), data);
+        if (n == null) {
+            return false;
+        } 
+        else if ( n.getData() == data){
+            return true;
+        }     
+        else if ( data < n.getData() ) {
+            return complexSearch(n.getLeft(), data);
+        }
+        else 
+            return complexSearch(n.getRight(), data);
+        
+
     }
 
     
