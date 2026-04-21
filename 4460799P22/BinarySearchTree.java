@@ -1,6 +1,12 @@
 //Binary Search Tree class
 class BinarySearchTree {
-    Node root;
-    int size;
+    private Node root;
+    private int size;
+
+    public BinarySearchTree(){
+        this.root = null;
+        this.size = 0;
+    }
     
+
 }
