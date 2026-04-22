@@ -41,7 +41,15 @@ class BinarySearchTree {
 
     }
 
-    
+    public void insert(int data){
+        complexInsert(root, data);
+    }
+
+    private void complexInsert(Node n, int data){
+        if (n == null) {    //if no root exists/ empty tree
+            n = new Node(data);
+        }
+    }
 
 }
 
@@ -72,6 +80,13 @@ class Node {
         this.data = data;
         this.left = left;
         this.right = right;
+    }
+
+    public Node(int data){
+        this.data = data;
+        this.left = null;
+        this.right = null;
+
     }
 
     public void setData(int data){this.data = data;}    //setters
