@@ -90,6 +90,19 @@ class BinarySearchTree {
     
     }
 
+    public void print_in_order(){       //Question 2.4
+        complexPrintInOrder(root);
+        System.out.println();   //newline after printing the tree
+    }
+
+    private void complexPrintInOrder(Node n){
+        if(n != null){
+            complexPrintInOrder(n.getLeft());       //get lower than
+            System.out.print(n.getData() + " ");        // get root 
+            complexPrintInOrder(n.getRight());      //get higher than (should result in ascending order)
+        }
+    }
+
 }
 
  
