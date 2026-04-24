@@ -1,5 +1,5 @@
 //Binary Search Tree class
-
+                                                //Question 1
 class BinarySearchTree {
     private Node root;
     private int size;
@@ -21,7 +21,7 @@ class BinarySearchTree {
     public Node getRoot(){return root;}             //getters
     public int getSize(){return size;}
 
-    public boolean search(int data){
+    public boolean search(int data){                    //Question 2.1
         return complexSearch( root, data);      //Asked Copilot how to go about creating the function without having node as a parameter
     }
 
@@ -41,7 +41,7 @@ class BinarySearchTree {
 
     }
 
-    public void insert(int data){
+    public void insert(int data){                   // QUESTION 2.2
         root = complexInsert(root, data);
     }
 
@@ -71,6 +71,23 @@ class BinarySearchTree {
             size++;
         }
         return n;
+    }
+
+    public int height(){                        //Question 2.3
+        if (root == null){
+            return 0;   //if empty tree, height is 0
+        }
+        return complexHeight(root);
+    }
+
+    private int complexHeight(Node n){
+        if (n == null) {
+            return -1; 
+        }
+        int leftheight = complexHeight(n.getLeft());        
+        int rightheight = complexHeight(n.getRight());
+        return Math.max(leftheight, rightheight) + 1;
+    
     }
 
 }
