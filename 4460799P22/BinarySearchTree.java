@@ -96,7 +96,7 @@ class BinarySearchTree {
     private int kthCounter;     //Question 2.5
     private int kthAnswer;
 
-    public int find_kth_smallets(int k){
+    public int find_kth_smallest(int k){
         if ( k <= 0 || k > size){ 
             System.out.println("Input not valid");
              return -1;
