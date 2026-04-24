@@ -102,8 +102,34 @@ class BinarySearchTree {
             complexPrintInOrder(n.getRight());      //get higher than (should result in ascending order)
         }
     }
+    private int kthCounter;     //Question 2.5
+    private int kthAnswer;
+
+    public int find_kth_smallets(int k){
+        if ( k <= 0 || k > size){ 
+            System.out.println("Input not valid");
+             return -1;
+        }    //if k is out of bounds, return -1
+    
+        kthCounter = 0;
+        kthAnswer = -1;
+        complexFindKthSmallest(root, k);
+        return kthAnswer;
+    }
+    private void complexFindKthSmallest(Node n, int k){
+        if (n == null) {
+            return;
+        }
+        complexFindKthSmallest(n.getLeft(), k);     //go to the smallest first
+        kthCounter++;      //increment counter when we visit a node
+        if (kthCounter == k){      //if counter is equal to k, we found our answer
+            kthAnswer = n.getData();
+            return;
+        }
+        complexFindKthSmallest(n.getRight(), k);    //go to the bigger ones
 
 }
+
 
  
 
