@@ -26,7 +26,7 @@ class BinarySearchTree {
     }
 
     private boolean complexSearch(Node n, int data){
-        if (n == null) {
+        if (n == null) {        //if empty or no root exists, return false 
             return false;
         } 
         else if ( n.getData() == data){
@@ -42,13 +42,35 @@ class BinarySearchTree {
     }
 
     public void insert(int data){
-        complexInsert(root, data);
+        root = complexInsert(root, data);
     }
 
-    private void complexInsert(Node n, int data){
-        if (n == null) {    //if no root exists/ empty tree
-            n = new Node(data);
+    private Node complexInsert(Node n, int data){
+        if (n == null) {
+            size++;    //if no root exists/ empty tree
+            return new Node(data);      //insert the data as the root
         }
+        //CHECK FOR DUPES
+        if (search(data)){
+            System.out.println("Input not valid");
+            return n;
+            
+        }
+
+
+        if (data == n.getData()){
+            System.out.println("Input not valid");
+            return n;       //if data already exists, do not insert and return the node
+        }
+        //////////////////////
+        if (data < n.getData()) {       //if smaller than root set left.
+            n.setLeft(complexInsert(n.getLeft(), data));
+            size++;
+        } else if (data > n.getData()){                 //if bigger than root set right
+            n.setRight(complexInsert(n.getRight(), data));
+            size++;
+        }
+        return n;
     }
 
 }
