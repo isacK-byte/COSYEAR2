@@ -125,6 +125,56 @@ class BinarySearchTree {
             return;
         }
         complexFindKthSmallest(n.getRight(), k);    //go to the bigger ones
+    }    
+
+    public void delete(int data){
+      if (!search(data) ){
+        System.out.println("Input not valid"); // first check if k exists 
+
+        return;
+      }
+        root = complexDelete(root,data);
+        size--;    //decrement size after deletion
+    }
+
+    private Node complexDelete(Node n, int data){
+        if (n == null) return n;  // base case: if node is null, return null 
+        
+        
+        if (data < n.getData()){
+            n.setLeft(complexDelete(n.getLeft(), data));
+        }
+        else if (data > n.getData()){
+            n.setRight(complexDelete(n.getRight(), data));
+        }   
+        else {      
+            //found the node to delete
+            
+            if(n.getLeft() == null && n.getRight() == null){    //case 1: no children
+                return null;    // remove the node
+            }
+            
+            if (n.getLeft() == null){     //case 2a: no left child
+                return n.getRight();
+            }
+            if (n.getRight() == null){   //case 2b: no right child
+                return n.getLeft();
+            }
+                  //case 3: two children - in order predecessor (max of left)
+            Node predecessor = findMax(n.getLeft());    //find the largest in the left subtree
+            n.setData(predecessor.getData());     //replace data with predecessor's data
+            n.setLeft(complexDelete(n.getLeft(), predecessor.getData()));   //delete the predecessor node       
+        }
+        return n;
+
+    }
+
+    private Node findMax(Node n){
+        while (n.getRight() != null){     //keep going right until you find the largest
+            n = n.getRight();
+        }
+        return n;
+    }
 
 }
 
