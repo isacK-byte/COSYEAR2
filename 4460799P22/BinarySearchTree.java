@@ -117,9 +117,7 @@ class BinarySearchTree {
         return kthAnswer;
     }
     private void complexFindKthSmallest(Node n, int k){
-        if (n == null) {
-            return;
-        }
+        if (n == null || kthCounter >= k) return ; //base case: if node is null or we already found the kth smallest 
         complexFindKthSmallest(n.getLeft(), k);     //go to the smallest first
         kthCounter++;      //increment counter when we visit a node
         if (kthCounter == k){      //if counter is equal to k, we found our answer
