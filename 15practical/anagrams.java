@@ -23,7 +23,7 @@ public class anagrams{
         String inputFile =  "joyce1922_ulysses.text";
         System.out.println("reading from file:"+" "+inputFile);
 
-        Hashmap<String, Integer> D = new Hashmap<>();
+        HashMap<String, Integer> D = new HashMap<>();
 
         try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(inputFile), "ISO-8859-1"))){
             
@@ -31,7 +31,7 @@ public class anagrams{
             int lineNumber = 0;
 
             while ((line = br.readLine()) != null) {
-                lineNumber++
+                lineNumber++;
                 String[] tokens = line.split("\\s+");
                 
                 for (String token : tokens) {
@@ -42,20 +42,20 @@ public class anagrams{
                     D.put(w, D.getOrDefault(w, 0)+ 1);
                 }
                 System.out.println("Lines read:"+ lineNumber);
-                System.out.println("Unique tokens"+ D.size);
+                System.out.println("Unique tokens"+ D.size());
 
                             }
         } catch (IOException e) {
             System.err.println("Error reading file");
-            System.ext(1);
+            System.exit(1);
         }
 
 
-        Hashmap<String, Arraylist<String>> A = new Hashmap<>();
+        HashMap<String, ArrayList<String>> A = new HashMap<>();
         for (String w : D.keySet()){
             String sig = signature(w);
             if (!A.containsKey(sig)){
-                A.put(sig, new Arraylist<>());
+                A.put(sig, new ArrayList<>());
             }
             A.get(sig).add(w);
         }
@@ -63,12 +63,12 @@ public class anagrams{
         System.out.println("Anagram Dictionary :)");
 
     
-        List<String> sortedKeys = new Arraylist<>(A.keySet());
+        List<String> sortedKeys = new ArrayList<>(A.keySet());
         Collections.sort(sortedKeys);
         
         int groupCount = 0;
         for ( String key : sortedKeys){
-            Arraylist<String> group = A.get(key);
+            ArrayList<String> group = A.get(key);
             if (group.size() >= 2) {
                 Collections.sort(group);
                 System.out.println(key +" : "+ group);
@@ -77,19 +77,19 @@ public class anagrams{
         }
         System.out.println("Total groups:"+groupCount);
 
-        Arraylist<String> allLines = new Arraylist<>();
+        ArrayList<String> allLines = new ArrayList<>();
 
         for (String key : A.keySet()) {
-            Arraylist<String> group = A.get(key);
+            ArrayList<String> group = A.get(key);
             if (group.size() >= 2) continue;
             Collections.sort(group);
 
             int n = group.size();
             for (int rotation = 0 ; rotation  < n ; rotation++) {
-                Stringbuilder sb =  new Stringbuilder();
+                StringBuilder sb =  new StringBuilder();
                 for (int i = 0; i < n; i++){
                     if (i > 0) sb.append(" ");
-                    sb.append(group.get(i+ rotation) % n);
+                  //  sb.append(group.get(i+rotation) % n);
                 }
                 allLines.add(sb.toString()+ "||||");
             }
