@@ -47,7 +47,7 @@ class BinarySearchTree {
 
     private Node complexInsert(Node n, int data){
         if (n == null) {
-            size++;    //if no root exists/ empty tree
+            size++;    //empty spot so insert here 
             return new Node(data);      //insert the data as the root
         }
 
