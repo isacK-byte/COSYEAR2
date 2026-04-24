@@ -38,20 +38,22 @@ public class Main {
                         } 
                         System.out.printf("%-18s", "IN_ORDER:");
                         bst.print_in_order();
+                        break;
 
                     case "SIZE" :
                         if (blocks.length !=1) {
                             System.out.println("Input not valid");
                             break;
                         }
-                        System.out.printf("%-18s", "SIZE:", bst.getSize());
+                        System.out.printf("%-18s%d\n", "SIZE:", bst.getSize());
+                        break;
                     
                     case "HEIGHT" :
                         if (blocks.length !=1) {
                             System.out.println("Input not valid");
                             break;
                         }
-                        System.out.printf("%-18s", "HEIGHT:", bst.height());
+                        System.out.printf("%-18s%d\n", "HEIGHT:", bst.height());
                         break;
 
                     case "SEARCH" :
@@ -62,7 +64,7 @@ public class Main {
                         try {
                             int data = Integer.parseInt(blocks[1]);
                             boolean found = bst.search(data);
-                            System.out.printf("%-18s", "SEARCH " + data + ": " + found);
+                            System.out.printf("SEARCH %d: %s\n", data, found);
                         } catch ( NumberFormatException e){
                             System.out.println("Input not valid");
                         }
@@ -80,6 +82,7 @@ public class Main {
                             System.out.println("Input not valid");
                         }
                         break;
+
                     case "INSERT" :
                         if (blocks.length != 2) {
                             System.out.println("Input not valid");
@@ -101,9 +104,9 @@ public class Main {
                             int data = Integer.parseInt(blocks[1]);
                             int kthSmallest = bst.find_kth_smallest(data);
                             if (kthSmallest != -1) {
-                                System.out.printf("%-18s", "KTH_SMALLEST " + data + ": " + kthSmallest);
+                                System.out.printf("KTH_SMALLEST %d: %d\n", data, kthSmallest);
                             } else {
-                                System.out.printf("%-18s", "KTH_SMALLEST " + data + ": Not found");
+                                System.out.printf("KTH_SMALLEST %d: Not found\n", data);
                             }
                         } catch ( NumberFormatException e){
                             System.out.println("Input not valid");
@@ -111,6 +114,7 @@ public class Main {
                         break;
                     
                     default:
+                        System.out.println("");
                         System.out.println("Input not valid");
                         break;
 
