@@ -1,12 +1,16 @@
 //Main implementation
 import java.io.*;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException { 
         BinarySearchTree bst = new BinarySearchTree();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the file name (e.g., input.txt): ");
+        String fileName = sc.nextLine();
 
-        try (BufferedReader br = new BufferedReader(new FileReader("input.txt"))){
-            
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))){
+
             String line;
             while ((line = br.readLine()) != null) {
                 line = line.trim();
