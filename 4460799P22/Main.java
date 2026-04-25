@@ -10,7 +10,7 @@ public class Main {
         String fileName = sc.nextLine();
 
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))){
-
+            sc.close();
             String line;
             while ((line = br.readLine()) != null) {
                 line = line.trim();
