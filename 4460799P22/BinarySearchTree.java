@@ -1,4 +1,4 @@
-//Binary Search Tree class
+//Binary Search Tree class 4460799 Isack Habimana 
                                                 //Question 1
 class BinarySearchTree {
     private Node root;
@@ -22,27 +22,27 @@ class BinarySearchTree {
     public int getSize(){return size;}
 
     public boolean search(int data){                    //Question 2.1
-        return complexSearch( root, data);      //Asked Copilot how to go about creating the function without having node as a parameter
+        return complexSearch( root, data);      //Helper function only way to hide the root from the user and still be able to search through the tree recursively
     }
 
     private boolean complexSearch(Node n, int data){
         if (n == null) {        //if empty or no root exists, return false 
             return false;
         } 
-        else if ( n.getData() == data){
+        else if ( n.getData() == data){     // if we found the data, return true
             return true;
         }     
         else if ( data < n.getData() ) {
-            return complexSearch(n.getLeft(), data);
+            return complexSearch(n.getLeft(), data);    //if data is smaller than root, search left subtree
         }
         else 
-            return complexSearch(n.getRight(), data);
+            return complexSearch(n.getRight(), data);  //if data is bigger than root, search right subtree
         
 
     }
 
     public void insert(int data){                   // QUESTION 2.2
-        root = complexInsert(root, data);
+        root = complexInsert(root, data);   //encapsulation final boss 
     }
 
     private Node complexInsert(Node n, int data){
@@ -73,17 +73,17 @@ class BinarySearchTree {
 
     private int complexHeight(Node n){
         if (n == null) {
-            return -1; 
+            return -1;      //if we reach a null node, return -1 so that the height of a leaf node will be 0 (max of -1 and -1 + 1)
         }
-        int leftheight = complexHeight(n.getLeft());        
+        int leftheight = complexHeight(n.getLeft());         
         int rightheight = complexHeight(n.getRight());
-        return Math.max(leftheight, rightheight) + 1;
+        return Math.max(leftheight, rightheight) + 1;   //height of a node is max height of its subtrees + 1 for itself
     
     }
 
     public void print_in_order(){       //Question 2.4
         complexPrintInOrder(root);
-        System.out.println();   //newline after printing the tree
+        System.out.println();   //newline after printing the tree, had weird formatting issues
     }
 
     private void complexPrintInOrder(Node n){
@@ -152,7 +152,7 @@ class BinarySearchTree {
                 return n.getLeft();
             }
                   //case 3: two children - in order predecessor (max of left)
-            Node predecessor = findMax(n.getLeft());    //find the largest in the left subtree
+            Node predecessor = getMax(n.getLeft());    //find the largest in the left subtree
             n.setData(predecessor.getData());     //replace data with predecessor's data
             n.setLeft(complexDelete(n.getLeft(), predecessor.getData()));   //delete the predecessor node       
         }
@@ -160,7 +160,7 @@ class BinarySearchTree {
 
     }
 
-    private Node findMax(Node n){
+    private Node getMax(Node n){
         while (n.getRight() != null){     //keep going right until you find the largest
             n = n.getRight();
         }

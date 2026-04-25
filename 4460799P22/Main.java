@@ -1,4 +1,4 @@
-//Main implementation
+//Main implementation Isack Habimana 4460799
 import java.io.*;
 import java.util.*;
 
@@ -22,7 +22,7 @@ public class Main {
                 switch (command){
 
                     case "BUILD" :
-                        if (blocks.length < 2) {
+                        if (blocks.length < 2) {        // makes sure there is atleast 1 element to build the tree 
                             System.out.println("Input not valid");
                             break;
                         }
@@ -49,7 +49,7 @@ public class Main {
                             System.out.println("Input not valid");
                             break;
                         }
-                        System.out.printf("%-18s%d\n", "SIZE:", bst.getSize());
+                        System.out.printf("%-18s%d\n", "SIZE:", bst.getSize()); //icl I used my browser copilot to find out how this print format thing works. Im not sure if I needed to cite it since it's like built in java but I just wanted to be safe.
                         break;
                     
                     case "HEIGHT" :

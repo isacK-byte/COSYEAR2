@@ -1,5 +1,5 @@
-//Node class
- class Node {
+//Node class 4460799 Isack Habimana
+ class Node {               //Question 1
     private int data;
     private Node left;
     private Node right;
